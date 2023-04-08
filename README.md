@@ -22,8 +22,6 @@ This also includes implementations of many recent papers studying prompt-based l
 2. [Download & Preprocess Data](#download-and-preprocess-data)
 3. [Demonstration-based methods](#demonstration-based-methods)
     - [Zero-shot](#zero-shot)
-    - [Concat-based demonstration](#concat-based-demonstration)
-    - [Ensemble-based demonstration](#ensemble-based-demonstration)
 4. [Tuning methods](#tuning-methods)
     - [Prompt tuning](#prompt-tuning)
     - [Head tuning](#head-tuning)
