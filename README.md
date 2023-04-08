@@ -9,16 +9,6 @@ This includes an original implementation of Sewon Min, Mike Lewis, Hannaneh Haji
 
 For any questions about the paper or the code, or to request pretrained checkpoints, please contact the first author ([email](mailto:cs.washington.edu)) or leave issues.
 
-If you find our code or paper useful, please cite the paper:
-```
-@article{ min2021noisy ,
-  title={ Noisy Channel Language Model Prompting for Few-Shot Text Classification },
-  author={ Min, Sewon and Lewis, Mike and Hajishirzi, Hannaneh and Zettlemoyer, Luke },
-  journal={ arXiv preprint },
-  year={ 2021 }
-}
-```
-
 This also includes implementations of many recent papers studying prompt-based learning. Please make sure to cite corresponding papers when you use implementations of the methods in this repo.
 * Brown et al. NeurIPS 2021. "[Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)": for zero-shot and concat-based demonstration methods.
 * Zhao et al. ICML 2021. "[Calibrate before use: Improving few-shot performance of language models](https://arxiv.org/abs/2102.09690)": for direct++ formulations.
