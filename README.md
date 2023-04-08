@@ -29,7 +29,12 @@ $ pip install transformers
 ```
 
 **To check the data:**
-You can see the list of eleven datasets used in the paper by `ls data/k-shot`. Each dataset consists of five different splits based on five different splits (test sets are the same).
+Please refer to the original implementation for all the datasets and downloading them. This is a forked repo. 
+The data that we used is in data.zip Please unzip the file and use task "SST-5" for "CoVid-19 Tweets, Sentiment Analysis" or use task "cite" for "Legal Citation" 
+
+These datasets are downloaded from Kaggle: 
+Covid-19 NLP : https://www.kaggle.com/datasets/datatattle/covid-19-nlp-text-classification
+Legal Citation NLP : https://www.kaggle.com/datasets/shivamb/legal-citation-text-classification
 
 
 ## Demonstration-based methods
