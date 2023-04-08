@@ -109,29 +109,6 @@ Useful notes:
 * To save a log file, please specify `--log_file`.
 * To use GPT2 with different sizes, please use `--gpt2 {gpt2|gpt2-medium|gpt2-xl}`.
 
-### Concat-based demonstration
-
-```
-python main.py \
-    --task {task_name} \
-    --split {dev|test} \
-    --data_dir data \
-    --out_dir out \
-    --gpt2 gpt2-large \
-    --do_zeroshot \
-    --method {direct|channel} \
-    --use_demonstrations \
-    --k 16 \
-    --seed {13|21|42|87|100}
-```
-
-* You can modify `k` and `seed` to try different numbers of training examples and different seeds for the k-shot data.
-
-### Ensemble-based demonstration
-
-Add `--ensemble` to the command line for the Concat-based demonstration method.
-
-
 ## Tuning methods
 
 <p align="center">
