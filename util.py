@@ -86,6 +86,8 @@ def get_prompts(task, idx):
     elif task=="subj":
         templates = ["This is %s . ", "It's all %s . ",
                      "It's %s . ", "Is it %s ? "]
+    elif task=="cite":
+        templates = ["The paper was %s","%s as there"]
     elif task=="CoLA":
         templates = ["This is %s .",
                      "It is %s .",
@@ -96,6 +98,17 @@ def get_prompts(task, idx):
 
     if task in ["SST-2", "mr", "cr", "yelp_binary"]:
         label_words = ["terrible", "great"]
+    elif task in ["cite"]:
+        label_words = ['cited', 
+                       'applied', 
+                       'followed', 
+                       'referred to', 
+                       'related', 
+                       'considered', 
+                       'discussed', 
+                       'distinguished', 
+                       'affirmed', 
+                       'approved']
     elif task in ["sst-5", "yelp_full", "amazon"]:
         label_words = ["terrible", "bad", "okay", "good", "great"]
     elif task in ["agnews"]:
