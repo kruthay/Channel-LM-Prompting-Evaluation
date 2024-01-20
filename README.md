@@ -1,4 +1,4 @@
-# Channel LM Prompting (and beyond)
+# Evaluation and Reimplementation of Channel LM Prompting (and beyond)
 
 This includes an original implementation of Sewon Min, Mike Lewis, Hannaneh Hajishirzi, Luke Zettlemoyer. "[Noisy Channel Language Model Prompting for Few-Shot Text Classification][paper]" 2021.
 
@@ -7,17 +7,6 @@ This includes an original implementation of Sewon Min, Mike Lewis, Hannaneh Haji
 </p>
 
 
-## Content
-
-1. [Installation](#installation)
-2. [Download & Preprocess Data](#download-and-preprocess-data)
-3. [Demonstration-based methods](#demonstration-based-methods)
-    - [Zero-shot](#zero-shot)
-4. [Tuning methods](#tuning-methods)
-    - [Prompt tuning](#prompt-tuning)
-    - [Head tuning](#head-tuning)
-    - [Transformation tuning](#transformation-tuning)
-    - [Standard finetuning](#standard-finetuning)
 
 ## Installation
 
@@ -36,75 +25,9 @@ These datasets are downloaded from Kaggle:
 Covid-19 NLP : https://www.kaggle.com/datasets/datatattle/covid-19-nlp-text-classification
 Legal Citation NLP : https://www.kaggle.com/datasets/shivamb/legal-citation-text-classification
 
+**Extra Methods & Functionality**
 
-## Demonstration-based methods
-
-<p align="center">
-  <img src="img/demonstration.png" width="70%" height="70%">
-</p>
-
-This section is for methods which does not update any of the model parameters. For details about methods, please see Section 4.1 of the [paper][paper].
-
-### Zero-shot
-
-```
-python main.py \
-    --task {task_name} \
-    --split {dev|test} \
-    --data_dir data \
-    --out_dir out \
-    --gpt2 gpt2-large \
-    --do_zeroshot \
-    --method {direct|channel}
-```
-
-This command will run zero-shot inference using GPT2-large using four different templates (verbalizers) as reported in the paper.
-
-* For "channel", please specify `--method channel`.
-* For "direct", please specify `--method direct`.
-
-Useful notes:
-* You can adjust `--batch_size` if you run into OOM issue (default is `32`).
-* To use GPT2 with different sizes, please use `--gpt2 {gpt2|gpt2-medium|gpt2-xl}`.
-
-## Tuning methods
-
-<p align="center">
-  <img src="img/tuning.png" width="70%" height="70%">
-</p>
-
-This section is for methods that fully finetune the model parameters (standard finetuning), or update a very limited number of parameters (prompt tuning, head tuning and transformation tuning). For details about the methods, please see Section 4.2 of the [paper][paper].
-
-### Prompt tuning
-
-```
-python main.py \
-    --task {task_name} \
-    --split {dev|test} \
-    --data_dir data \
-    --out_dir out \
-    --gpt2 gpt2-large \
-    --method {direct|channel} \
-    --prompt_tune \
-    --do_train \
-    --batch_size 32 \
-    --lr {0.1|0.01|0.001}
-```
-
-* Please note that GPU parallization is implemented for training, but is not implemented for inference.
-* Note that, by default, we use the checkpoint that is trained for 100 steps.
-
-### Head tuning
-
-Use `--head_tune` instead of `--prompt_tune` to the command line for the Prompt tuning method. Note that head tuning is only for the direct baseline.
-
-### Transformation tuning
-
-Use `--transform_tune` instead of `--prompt_tune` to the command line for the Prompt tuning method. Note that transformation tuning is only for the direct baseline.
-
-### Standard finetuning
-
-To finetune the entire model parameters, as in typical finetuning, please do not specify any of `--prompt_tune`, `--head_tune` or `--transform_tune`.
+Tested the paper on other LLMs including BERT & other datasets to confirm if the results hold true.
 
 For any questions about the paper or the code, or to request pretrained checkpoints, please contact the first author ([email](mailto:cs.washington.edu)) or leave issues.
 
